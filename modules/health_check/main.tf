@@ -1,24 +1,24 @@
 /**
- * # aws-terraform-route53 - health_check
- *
- *This module creates Route53 health checks and CloudWatch alarms for a list of fully qualified domain names.
- *
- *## Basic Usage
- *
- *```
- *module "health_check" {
- *  source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-route53//modules/health_check/?ref=v0.0.1"
- *
- *  name = "HealthCheck1"
+* # aws-terraform-route53/modules/health_check
+*
+*This module creates Route53 health checks and CloudWatch alarms for a list of fully qualified domain names.
+*
+*## Basic Usage
+*
+*```
+*module "health_check" {
+*  source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-route53//modules/health_check/?ref=v0.0.1"
+*
+*  name = "HealthCheck1"
 
- *  domain_name       = ["mysite.com", "subdomain.mysite.com"]
- *  domain_name_count = 2
- *}
- *```
- *
- * Full working references are available at [examples](examples)
- *
- */
+*  domain_name       = ["mysite.com", "subdomain.mysite.com"]
+*  domain_name_count = 2
+*}
+*```
+*
+* Full working references are available at [examples](examples)
+*
+*/
 
 data "aws_region" "current" {}
 
