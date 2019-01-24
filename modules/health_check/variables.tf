@@ -3,12 +3,6 @@ variable "name" {
   type        = "string"
 }
 
-variable "alarms_enabled" {
-  description = "Specifies whether cloudwatch alarms will be created for the health checks."
-  type        = "string"
-  default     = false
-}
-
 variable "alarm_evaluations" {
   description = "The number of failed evaluations before the CloudWatch alarm is triggered."
   type        = "string"
@@ -38,9 +32,9 @@ variable "failure_threshold" {
 }
 
 variable "notification_topic" {
-  description = "SNS Topic ARN to use for customer notifications from CloudWatch alarms. (OPTIONAL)"
-  type        = "string"
-  default     = ""
+  description = "List of SNS Topic ARNs to use for customer notifications."
+  type        = "list"
+  default     = []
 }
 
 variable "port" {
@@ -53,6 +47,12 @@ variable "protocol" {
   description = "The port for the Route53 Healthcheck.  Allowed values are HTTP, HTTPS, and TCP."
   type        = "string"
   default     = "HTTP"
+}
+
+variable "rackspace_alarms_enabled" {
+  description = "Specifies whether alarms will create a Rackspace ticket.  Ignored if rackspace_managed is set to false."
+  type        = "string"
+  default     = false
 }
 
 variable "rackspace_managed" {
