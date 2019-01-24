@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 module "health_check_1" {
-  source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-route53//modules/health_check/?ref=v0.0.1"
+  source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-route53//modules/health_check/?ref=v0.0.2"
 
   name = "HealthCheck1"
 
