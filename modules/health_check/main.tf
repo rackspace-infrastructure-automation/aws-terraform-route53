@@ -33,6 +33,14 @@ locals {
   }
 }
 
+data "null_data_source" "hc_name_tag" {
+  count = "${var.domain_name_count}"
+
+  inputs = {
+    Name = "${var.name} - ${element(var.domain_name, count.index)}"
+  }
+}
+
 resource "aws_route53_health_check" "health_check" {
   count = "${var.domain_name_count}"
 
@@ -46,7 +54,7 @@ resource "aws_route53_health_check" "health_check" {
   type              = "${local.healthcheck_type}"
 
   tags = "${merge(
-    map("Name", "${var.name} - ${element(var.domain_name, count.index)}"),
+    data.null_data_source.hc_name_tag.*.outputs[count.index],
     local.tags,
     var.tags
   )}"
