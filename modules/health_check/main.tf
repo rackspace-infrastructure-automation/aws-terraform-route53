@@ -1,20 +1,20 @@
-/**
- * # aws-terraform-route53 - health_check
- *
- *This module creates Route53 health checks and CloudWatch alarms for a list of fully qualified domain names.
- *
- *## Basic Usage
- *
- *```
- *module "health_check" {
- *  source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-route53//modules/health_check/?ref=v0.0.2"
- *
- *  name = "HealthCheck1"
-
+/*
+* # aws-terraform-route53 - health_check
+*
+* This module creates Route53 health checks and CloudWatch alarms for a list of fully qualified domain names.
+*
+* ## Basic Usage
+*
+* ```
+* module "health_check" {
+*   source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-route53//modules/health_check/?ref=v0.0.2"
+*
 *  domain_name       = ["mysite.com", "subdomain.mysite.com"]
 *  domain_name_count = 2
-*}
-*```
+*  name              = "HealthCheck1"
+*
+* }
+* ```
 *
 * Full working references are available at [examples](examples)
 *
@@ -24,12 +24,12 @@
 */
 
 locals {
-  healthcheck_type = "${upper(var.protocol)}${var.search_string == "" && upper(var.protocol) != "TCP" ? "" : "_STR_MATCH"}"
   default_port     = "${upper(var.protocol) == "HTTPS" ? 443 : 80}"
+  healthcheck_type = "${upper(var.protocol)}${var.search_string == "" && upper(var.protocol) != "TCP" ? "" : "_STR_MATCH"}"
 
   tags {
-    ServiceProvider = "Rackspace"
     Environment     = "${var.environment}"
+    ServiceProvider = "Rackspace"
   }
 }
 
@@ -63,8 +63,7 @@ data "null_data_source" "alarm_dimensions" {
 module "health_check_alarms" {
   source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-cloudwatch_alarm//?ref=v0.0.1"
 
-  alarm_count = "${var.domain_name_count}"
-
+  alarm_count              = "${var.domain_name_count}"
   alarm_description        = "Domain healthcheck has failed."
   alarm_name               = "${var.name}-R53-HealthCheck-Alarm"
   comparison_operator      = "LessThanThreshold"
