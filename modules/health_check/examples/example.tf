@@ -13,6 +13,7 @@ module "health_check_1" {
   name              = "HealthCheck1"
   domain_name       = ["www.rackspace.com"]
   domain_name_count = 1
+
   # alarms_enabled     = true
   # alarm_evaluations  = 20
   # failure_threshold  = 5
@@ -28,4 +29,3 @@ module "health_check_1" {
   #   Tag1 = "Value 1"
   # }
 }
-

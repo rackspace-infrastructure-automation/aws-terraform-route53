@@ -39,7 +39,7 @@ variable "notification_topic" {
 
 variable "port" {
   description = "The port for the Route53 Healthcheck.  Omit to use the default port for the desired protocol."
-  type        = string
+  type        = number
   default     = 0
 }
 

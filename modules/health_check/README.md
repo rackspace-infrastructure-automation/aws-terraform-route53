@@ -43,7 +43,7 @@ There should be no changes required to move from previous versions of this modul
 | failure\_threshold | The number of consecutive health checks that an endpoint must pass or fail. | `string` | `3` | no |
 | name | The name prefix for these resources | `string` | n/a | yes |
 | notification\_topic | List of SNS Topic ARNs to use for customer notifications. | `list(string)` | `[]` | no |
-| port | The port for the Route53 Healthcheck.  Omit to use the default port for the desired protocol. | `string` | `0` | no |
+| port | The port for the Route53 Healthcheck.  Omit to use the default port for the desired protocol. | `number` | `0` | no |
 | protocol | The port for the Route53 Healthcheck.  Allowed values are HTTP, HTTPS, and TCP. | `string` | `"HTTP"` | no |
 | rackspace\_alarms\_enabled | Specifies whether alarms will create a Rackspace ticket.  Ignored if rackspace\_managed is set to false. | `string` | `false` | no |
 | rackspace\_managed | Boolean parameter controlling if instance will be fully managed by Rackspace support teams, created CloudWatch alarms that generate tickets, and utilize Rackspace managed SSM documents. | `string` | `true` | no |
