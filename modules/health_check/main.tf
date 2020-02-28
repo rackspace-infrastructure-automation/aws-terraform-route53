@@ -7,7 +7,7 @@
 *
 * ```
 * module "health_check" {
-*   source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-route53//modules/health_check/?ref=v0.0.2"
+*   source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-route53//modules/health_check/?ref=v0.0.3"
 *
 *  domain_name       = ["mysite.com", "subdomain.mysite.com"]
 *  domain_name_count = 2
