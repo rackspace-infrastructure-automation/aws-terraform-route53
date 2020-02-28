@@ -7,7 +7,7 @@
 *
 * ```
 * module "health_check" {
-*   source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-route53//modules/health_check/?ref=v0.0.3"
+*   source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-route53//modules/health_check/?ref=v0.12.0"
 *
 *  domain_name       = ["mysite.com", "subdomain.mysite.com"]
 *  domain_name_count = 2
@@ -21,6 +21,10 @@
 * ## Other TF Modules Used
 * Using [aws-terraform-cloudwatch_alarm](https://github.com/rackspace-infrastructure-automation/aws-terraform-cloudwatch_alarm) to create the following CloudWatch Alarms:
 * 	- health_check_alarms
+*
+* ## Terraform 0.12 upgrade
+*
+* There should be no changes required to move from previous versions of this module to version 0.12.0 or higher.
 */
 
 terraform {
@@ -73,22 +77,22 @@ data "null_data_source" "alarm_dimensions" {
 }
 
 module "health_check_alarms" {
-  source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-cloudwatch_alarm//?ref=v0.0.1"
+  source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-cloudwatch_alarm//?ref=v0.12.1"
 
   alarm_count              = var.domain_name_count
   alarm_description        = "Domain healthcheck has failed."
-  alarm_name               = "${var.name}-R53-HealthCheck-Alarm"
   comparison_operator      = "LessThanThreshold"
   dimensions               = data.null_data_source.alarm_dimensions.*.outputs
   evaluation_periods       = var.alarm_evaluations
   metric_name              = "HealthCheckStatus"
+  name                     = "${var.name}-R53-HealthCheck-Alarm"
   namespace                = "AWS/Route53"
   notification_topic       = var.notification_topic
-  period                   = "60"
+  period                   = 60
   rackspace_alarms_enabled = var.rackspace_alarms_enabled
   rackspace_managed        = var.rackspace_managed
   severity                 = "urgent"
   statistic                = "Minimum"
-  threshold                = "1"
+  threshold                = 1
 }
 

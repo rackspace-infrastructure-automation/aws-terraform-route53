@@ -8,7 +8,7 @@ terraform {
 }
 
 module "health_check_1" {
-  source = "../"
+  source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-route53//modules/health_check/?ref=v0.12.0"
 
   name              = "HealthCheck1"
   domain_name       = ["www.rackspace.com"]
@@ -16,7 +16,7 @@ module "health_check_1" {
   # alarms_enabled     = true
   # alarm_evaluations  = 20
   # failure_threshold  = 5
-  # notification_topic = "${module.sns.topic_arn}"
+  # notification_topic = "module.sns.topic_arn
   # port               = 8443
   # protocol           = "HTTPS"
   # rackspace_managed  = false
