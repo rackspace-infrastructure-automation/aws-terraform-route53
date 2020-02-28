@@ -1,8 +1,3 @@
-variable "name" {
-  description = "The name prefix for these resources"
-  type        = "string"
-}
-
 variable "alarm_evaluations" {
   description = "The number of failed evaluations before the CloudWatch alarm is triggered."
   type        = "string"
@@ -29,6 +24,11 @@ variable "failure_threshold" {
   description = "The number of consecutive health checks that an endpoint must pass or fail."
   type        = "string"
   default     = 3
+}
+
+variable "name" {
+  description = "The name prefix for these resources"
+  type        = "string"
 }
 
 variable "notification_topic" {

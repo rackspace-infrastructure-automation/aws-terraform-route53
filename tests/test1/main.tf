@@ -4,10 +4,9 @@ provider "aws" {
 }
 
 module "health_check_1" {
-  source = "../../module/modules/health_check/?ref=v0.0.1"
+  source = "../../module/modules/health_check/"
 
-  name = "HealthCheck1"
-
+  name              = "HealthCheck1"
   domain_name       = ["www.rackspace.com", "bad_site.rackspace.com"]
   domain_name_count = 2
 }
