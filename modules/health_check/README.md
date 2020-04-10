@@ -29,7 +29,7 @@ There should be no changes required to move from previous versions of this modul
 
 | Name | Version |
 |------|---------|
-| aws | n/a |
+| aws | >= 2.7.0 |
 | null | n/a |
 
 ## Inputs
