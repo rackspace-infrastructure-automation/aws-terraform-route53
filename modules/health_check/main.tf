@@ -81,7 +81,7 @@ data "null_data_source" "alarm_dimensions" {
 }
 
 module "health_check_alarms" {
-  source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-cloudwatch_alarm//?ref=v0.12.1"
+  source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-cloudwatch_alarm//?ref=v0.12.4"
 
   alarm_count              = var.domain_name_count
   alarm_description        = "Domain healthcheck has failed."
