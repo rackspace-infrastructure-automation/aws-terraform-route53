@@ -25,6 +25,13 @@ Using [aws-terraform-cloudwatch\_alarm](https://github.com/rackspace-infrastruct
 
 There should be no changes required to move from previous versions of this module to version 0.12.0 or higher.
 
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12 |
+| aws | >= 2.7.0 |
+
 ## Providers
 
 | Name | Version |
@@ -32,10 +39,23 @@ There should be no changes required to move from previous versions of this modul
 | aws | >= 2.7.0 |
 | null | n/a |
 
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| health_check_alarms | git@github.com:rackspace-infrastructure-automation/aws-terraform-cloudwatch_alarm//?ref=v0.12.6 |  |
+
+## Resources
+
+| Name |
+|------|
+| [aws_route53_health_check](https://registry.terraform.io/providers/hashicorp/aws/2.7.0/docs/resources/route53_health_check) |
+| [null_data_source](https://registry.terraform.io/providers/hashicorp/null/latest/docs/data-sources/data_source) |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | alarm\_evaluations | The number of failed evaluations before the CloudWatch alarm is triggered. | `string` | `10` | no |
 | domain\_name | A list of domain name or IP addresses to monitor. | `list(string)` | n/a | yes |
 | domain\_name\_count | The number of domain name or IP addresses to monitor. | `string` | n/a | yes |
@@ -57,4 +77,3 @@ There should be no changes required to move from previous versions of this modul
 | Name | Description |
 |------|-------------|
 | healthcheck\_id | Healthcheck ID |
-
