@@ -1,7 +1,23 @@
-# aws-terraform-route53
+## Requirements
 
-This repository contains several terraform modules to deploy various Route53 resources, such as Health Checks, and Internal Zones.
+No requirements.
 
-## Module listing
+## Providers
 
-- [health_check](./modules/health_check/) - A terraform module to create one or more Route 53 health checks and optionally a CloudWatch alarm for each health check.
+No provider.
+
+## Modules
+
+No Modules.
+
+## Resources
+
+No resources.
+
+## Inputs
+
+No input.
+
+## Outputs
+
+No output.
